@@ -1214,17 +1214,19 @@ function totalRouteMeters(route){
 function generateLightningRoute(){
   const route=[];
   const baseLat=START[0], baseLng=START[1];
-// Lightning "W" route (single continuous stroke)
-// Points are relative offsets from START, then scaled to TARGET_ROUTE_METERS.
-const pts=[
-  [0.00, 0.00],   // START (left peak)
-  [0.22, 0.75],   // down to first valley
-  [0.48, 0.12],   // up to mid peak
-  [0.74, 0.78],   // down to second valley
-  [1.02, 0.00]    // up to right peak (END)
-];
 
-for (const [dLat,dLng] of pts) route.push([baseLat+dLat, baseLng+dLng]);
+  // SHIELD ROUTE — bold recognisable outline
+  // One continuous stroke around a classic shield silhouette
+  const pts=[
+    [0.00, 0.40],   // top left
+    [0.00, 1.00],   // top right
+    [0.45, 1.25],   // right curve
+    [1.10, 0.70],   // bottom point
+    [0.45, 0.15],   // left curve
+    [0.00, 0.40]    // close back to top left
+  ];
+
+  for (const [dLat,dLng] of pts) route.push([baseLat+dLat, baseLng+dLng]);
   return route;
 }
 function scaleRouteToMeters(route, targetMeters){
