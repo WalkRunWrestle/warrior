@@ -1215,15 +1215,11 @@ function generateLightningRoute(){
   const route=[];
   const baseLat=START[0], baseLng=START[1];
 
-  // SHIELD ROUTE — bold recognisable outline
-  // One continuous stroke around a classic shield silhouette
+  // SPARTAN LAMBDA ROUTE — iconic warrior symbol Λ
   const pts=[
-    [0.00, 0.40],   // top left
-    [0.00, 1.00],   // top right
-    [0.45, 1.25],   // right curve
-    [1.10, 0.70],   // bottom point
-    [0.45, 0.15],   // left curve
-    [0.00, 0.40]    // close back to top left
+    [0.00, 0.40],   // left base
+    [1.20, 0.80],   // peak
+    [0.00, 1.20]    // right base
   ];
 
   for (const [dLat,dLng] of pts) route.push([baseLat+dLat, baseLng+dLng]);
